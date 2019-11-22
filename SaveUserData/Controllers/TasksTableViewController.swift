@@ -13,6 +13,7 @@ class TasksTableViewController: UITableViewController {
     
     var items = [Items]()
     var context: NSManagedObjectContext?
+    var userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class TasksTableViewController: UITableViewController {
         super.viewWillAppear(true)
         
         loadData()
+        print("View will appear")
     }
     
     //MARK: IBActions
@@ -78,11 +80,41 @@ class TasksTableViewController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    func creteRandomColor() -> UIColor {
+        let randomIndex = Int.random(in: 0...10)
+        var color = UIColor.systemBackground
+        
+        switch randomIndex {
+        case 1:
+            color = .systemRed
+        case 2:
+            color = .systemBlue
+        case 3:
+            color = .systemFill
+        case 4:
+            color = .systemGray
+        case 5:
+            color = .systemPink
+        case 6:
+            color = .systemGreen
+        case 7:
+            color = .systemIndigo
+        case 8:
+            color = .systemOrange
+        case 9:
+            color = .systemYellow
+        case 10:
+            color = .systemPurple
+        default:
+            break
+        }
+        return color
+    }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return items.count
     }
     
@@ -93,11 +125,26 @@ class TasksTableViewController: UITableViewController {
         cell.textLabel?.text = item.title
         cell.accessoryType = item.isCompleted ? .checkmark : .none
 
+        if let randomColor = userDefaults.object(forKey: "randomTaskColor") {
+            if randomColor as! Bool {
+                cell.backgroundColor = creteRandomColor()
+            } else {
+                cell.backgroundColor = .systemBackground
+            }
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        if let allowDelete = userDefaults.object(forKey: "allowTaskDelete") {
+            if allowDelete as! Bool {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return true
+        }
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
