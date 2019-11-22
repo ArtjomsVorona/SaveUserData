@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tasks Table View Controller-->
+        <!--Tasks-->
         <scene sceneID="ud4-kr-dOt">
             <objects>
                 <tableViewController id="n9t-bJ-WsP" customClass="TasksTableViewController" customModule="SaveUserData" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="n9t-bJ-WsP" id="ECv-pG-oRH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iWB-fM-B4c">
+                    <navigationItem key="navigationItem" title="Tasks" id="iWB-fM-B4c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RwD-qy-dFn">
                             <connections>
                                 <action selector="addNewItemTapped:" destination="n9t-bJ-WsP" id="78J-1t-zvy"/>
@@ -42,21 +42,78 @@
             </objects>
             <point key="canvasLocation" x="2186.9565217391305" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="ZoU-RE-Zlt">
             <objects>
-                <viewController id="ObE-Z5-px1" sceneMemberID="viewController">
+                <viewController id="ObE-Z5-px1" customClass="SettingsViewController" customModule="SaveUserData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eWi-Wd-uYL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="B7I-R0-26R">
+                                <rect key="frame" x="35" y="179" width="344" height="97"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-eO-fq0">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow task delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-BI-QLr">
+                                                <rect key="frame" x="0.0" y="0.0" width="224" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="ei2-0O-13T"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="zK5-05-eHZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WFp-vZ-Sy6">
+                                                <rect key="frame" x="295" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="allowTaskDeleteSwitchTapped:" destination="ObE-Z5-px1" eventType="valueChanged" id="e40-nK-Xnh"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="Sfi-H8-exP">
+                                        <rect key="frame" x="0.0" y="66" width="344" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random task color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb3-TV-O6h">
+                                                <rect key="frame" x="0.0" y="0.0" width="224" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="CmP-ib-wpw"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="wNH-lL-gTX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yh6-oC-wG4">
+                                                <rect key="frame" x="295" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="randomTaskColorSwitchTapped:" destination="ObE-Z5-px1" eventType="valueChanged" id="5Fa-yX-0zO"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="B7I-R0-26R" firstAttribute="top" secondItem="Kdb-FV-0v4" secondAttribute="top" constant="39" id="AZJ-xu-ruX"/>
+                            <constraint firstItem="B7I-R0-26R" firstAttribute="centerX" secondItem="Kdb-FV-0v4" secondAttribute="centerX" id="bFp-iZ-QZb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Kdb-FV-0v4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kBW-HL-Fha"/>
+                    <navigationItem key="navigationItem" title="Settings" id="kBW-HL-Fha"/>
+                    <connections>
+                        <outlet property="allowTaskDeleteSwitch" destination="WFp-vZ-Sy6" id="W1h-Y8-fRm"/>
+                        <outlet property="randomTaskColorSwitch" destination="yh6-oC-wG4" id="KCD-Qs-Isl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1S-B5-nFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2187" y="790"/>
+            <point key="canvasLocation" x="2186.9565217391305" y="789.50892857142856"/>
         </scene>
         <!--Settings-->
         <scene sceneID="2Vp-b8-Qfn">
@@ -64,8 +121,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y10-YG-jvH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="elT-nK-gpy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndj-Kt-rlv">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ndj-Kt-rlv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -83,8 +140,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zOx-Jr-ZVC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tasks" image="square.and.pencil" catalog="system" id="or5-Ea-GvO"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rSv-fP-XM0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rSv-fP-XM0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
