@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		ACF7320C23883424000B0054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7320B23883424000B0054 /* AppDelegate.swift */; };
 		ACF7320E23883424000B0054 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7320D23883424000B0054 /* SceneDelegate.swift */; };
-		ACF7321023883424000B0054 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7320F23883424000B0054 /* ViewController.swift */; };
 		ACF7321323883424000B0054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF7321123883424000B0054 /* Main.storyboard */; };
 		ACF7321623883424000B0054 /* SaveUserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACF7321423883424000B0054 /* SaveUserData.xcdatamodeld */; };
 		ACF7321823883426000B0054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF7321723883426000B0054 /* Assets.xcassets */; };
 		ACF7321B23883426000B0054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF7321923883426000B0054 /* LaunchScreen.storyboard */; };
+		ACF7322623883589000B0054 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7322523883589000B0054 /* TasksTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ACF7320823883424000B0054 /* SaveUserData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveUserData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF7320B23883424000B0054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF7320D23883424000B0054 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACF7320F23883424000B0054 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACF7321223883424000B0054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACF7321523883424000B0054 /* SaveUserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SaveUserData.xcdatamodel; sourceTree = "<group>"; };
 		ACF7321723883426000B0054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF7321A23883426000B0054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF7321C23883426000B0054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF7322523883589000B0054 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +58,40 @@
 		ACF7320A23883424000B0054 /* SaveUserData */ = {
 			isa = PBXGroup;
 			children = (
-				ACF7320B23883424000B0054 /* AppDelegate.swift */,
-				ACF7320D23883424000B0054 /* SceneDelegate.swift */,
-				ACF7320F23883424000B0054 /* ViewController.swift */,
-				ACF7321123883424000B0054 /* Main.storyboard */,
+				ACF7322423883575000B0054 /* Controllers */,
+				ACF7322323883456000B0054 /* Delegates */,
+				ACF732222388344F000B0054 /* Views */,
 				ACF7321723883426000B0054 /* Assets.xcassets */,
-				ACF7321923883426000B0054 /* LaunchScreen.storyboard */,
 				ACF7321C23883426000B0054 /* Info.plist */,
 				ACF7321423883424000B0054 /* SaveUserData.xcdatamodeld */,
 			);
 			path = SaveUserData;
+			sourceTree = "<group>";
+		};
+		ACF732222388344F000B0054 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACF7321123883424000B0054 /* Main.storyboard */,
+				ACF7321923883426000B0054 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACF7322323883456000B0054 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				ACF7320B23883424000B0054 /* AppDelegate.swift */,
+				ACF7320D23883424000B0054 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		ACF7322423883575000B0054 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACF7322523883589000B0054 /* TasksTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +165,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF7321023883424000B0054 /* ViewController.swift in Sources */,
 				ACF7321623883424000B0054 /* SaveUserData.xcdatamodeld in Sources */,
 				ACF7320C23883424000B0054 /* AppDelegate.swift in Sources */,
+				ACF7322623883589000B0054 /* TasksTableViewController.swift in Sources */,
 				ACF7320E23883424000B0054 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.SaveUserData";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.SaveUserData";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
