@@ -34,6 +34,7 @@ class TasksTableViewController: UITableViewController {
         
         alert.addTextField { (textField) in
             textField.placeholder = "Enter the title of your task"
+            textField.autocapitalizationType = .sentences
         }
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
