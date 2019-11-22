@@ -31,17 +31,21 @@ class SettingsViewController: UIViewController {
     }
 
 
-    func updateView() {
-        if userDefaults.bool(forKey: "allowTaskDelete") {
-            allowTaskDeleteSwitch.isOn = true
-        } else {
-            allowTaskDeleteSwitch.isOn = false
+    func updateView() {        
+        if let allowDelete = userDefaults.object(forKey: "allowTaskDelete") {
+            if allowDelete as! Bool {
+                allowTaskDeleteSwitch.isOn = true
+            } else {
+                allowTaskDeleteSwitch.isOn = false
+            }
         }
         
-        if userDefaults.bool(forKey: "randomTaskColor") {
-            randomTaskColorSwitch.isOn = true
-        } else {
-            randomTaskColorSwitch.isOn = false
+        if let randomColor = userDefaults.object(forKey: "randomTaskColor") {
+            if randomColor as! Bool {
+                randomTaskColorSwitch.isOn = true
+            } else {
+                randomTaskColorSwitch.isOn = false
+            }
         }
     }
 
